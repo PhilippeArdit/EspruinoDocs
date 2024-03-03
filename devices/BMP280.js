@@ -9,6 +9,11 @@ var C = {BMP280_ADDRESS: 0x76}
  */
 function BMP280(options, read, write) {
   options = options||{};
+  if(options) {
+    if (options.address) C.BMP280_ADDRESS = options.address;  
+    if (options.debug) print('C.BMP280_ADDRESS : 0x' + C.BMP280_ADDRESS.toString(16));
+  }
+  
   var osrs_t = 1;  //Temperature oversampling x 1
   var osrs_p = 1;  //Pressure oversampling x 1
   var mode = 3;    //Normal mode
